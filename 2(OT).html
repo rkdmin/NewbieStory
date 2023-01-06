@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>,
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>새내기이야기</title>
+		<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>		 
+		<link rel="stylesheet" href="font_setting.css" media=all>
+		<script type="text/javascript" src="character.js"></script>
+		<script>
+			function select() {
+				$('.select').html('<h3 align="center">어떻게 할까....?</h3><br/><a href="3(OT_after).html" rel="external" onClick="save_select(1);">1. 동아리... 들고싶지만 그럴 여유 하나도 없겠지..?</a><br/><br/><br/><a href="3(OT_after).html" rel="external" onClick="save_select(2);">2. 진지하게 기타 하나 사볼까...??</a><br/><br/><br/><a href="3(OT_after).html" rel="external" onClick="save_select(3);">3. 춤 너무 땡기는데 집가서 춤이나 쳐봐야겠다!!</a><br/><br/><br/>');
+				$('.select a').css({'padding':'20px', 'color':'black', 'font-size':'20px', 'text-decoration-line' : 'none', 'float': 'left'});
+				$('.select a').focus(function(){
+					$(this).css('color', '#2EE59D');
+				});
+				$('.select a').blur(function(){
+					$(this).css('color', '#2EE59D');
+				});
+			}
+			
+			function save_select(value) {
+				localStorage.setItem('one', value);
+			}
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed" data-theme="b">
+			<div class="face_setting"></div>
+			<div id="char_name" align="center"></div>
+			<div id="money" align="center"></div>
+			<div id="friendly" align="center"></div>
+			<a href="Option.html" data-role = "none" data-transition="slide" rel="external" class="ui-btn-right"><img src="option.png" id = "optionIMG" style = "float: right;"></a>
+			</div><br/><br/><br/><br/><br/><br/>
+			<div data-role="content" id="content_start">
+				<div class="text">
+					<script src="OT.js"></script>
+				</div><br/><br/><br/>
+				<div class="select" align="center"></div>
+			</div>
+		</div>
+	</body>
+</html>

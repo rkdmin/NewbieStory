@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>,
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>새내기이야기</title>
+	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>	
+		<link rel="stylesheet" href="font_setting.css" media=all>
+		<script type="text/javascript" src="character.js?version=20121221"></script> 
+		<script>
+			function select() {
+				$('.select').html('<h3 align="center">어떻게 하는게 좋을까?</h3><br/><a href="#" onclick="next_html(1);" rel="external">1. 다음에 쓸 일이 또 있겠지!! 집에 들고가자</a><br/><br/><br/><a href="#" onclick="next_html(2);" rel="external">2. 이제 작별! 그만 봐야지!</a><br/><br/><br/>');
+				$('.select a').css({'padding':'20px', 'color':'black', 'font-size':'20px', 'text-decoration-line' : 'none', 'float': 'left'});
+				$('.select a').focus(function(){
+					$(this).css('color', '#2EE59D');
+				});
+				$('.select a').blur(function(){
+					$(this).css('color', '#2EE59D');
+				});
+			}
+			
+			function next_html(value) {
+				var one = localStorage.getItem('one');
+				var band = localStorage.getItem('band');
+				var dance = localStorage.getItem('dance');
+				var OT_Liqure = localStorage.getItem('OT_Liqure');
+				var Metro = localStorage.getItem('Metro');
+				var DO = localStorage.getItem('DO');
+				var LeeDoHyeon = localStorage.getItem('LeeDoHyeon');
+				var LeeGaEun = localStorage.getItem('LeeGaEun');
+				var JiEunhye = localStorage.getItem('JiEunhye');
+				var KimGangJae = localStorage.getItem('KimGangJae');
+				var LeeEunhyeok = localStorage.getItem('LeeEunhyeok');
+				var KimHaeHun = localStorage.getItem('KimHaeHun');
+				var face = localStorage.getItem('face');  
+				var four = localStorage.getItem('four');
+				
+				if (value == 1) {
+					P();
+				}
+				else if (value == 2) {
+					J();
+				}
+				
+				if (one == 2 && OT_Liqure == 2 && Metro == 2 && LeeGaEun == 2 && LeeDoHyeon == 2 && four == 2) {
+					location.href = 'Ending_1.html';	
+				}
+				else if (one == 2 && OT_Liqure == 2 && Metro == 2 && LeeGaEun == 2 && LeeDoHyeon == 2 && four == 1) {
+					location.href = 'Ending_2.html';
+				}
+				else if (one == 2 && OT_Liqure == 2 && Metro == 2 && LeeDoHyeon == 2) {
+					location.href = 'Ending_3.html';
+				}
+				else if (one == 2 && OT_Liqure != 2 && Metro == 2 && LeeGaEun == 2) {
+					location.href = 'Ending_4.html';
+				}
+				else if (one == 3 && OT_Liqure == 2 && DO == 2 && LeeGaEun == 2) {
+					location.href = 'Ending_5.html';
+				}
+				else if (one == 3 && OT_Liqure == 2 && DO == 2 && LeeEunhyeok == 2) {
+					location.href = 'Ending_6.html';
+				}
+				else if (one == 1 && OT_Liqure == 2 && LeeGaEun == 2) {
+					location.href = 'Ending_7.html';
+				}
+				else if (one == 1 && OT_Liqure == 2) {
+					location.href = 'Ending_8.html';
+				}
+				else location.href = 'Ending_9.html';
+			}
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed" data-theme="b">
+			<div class="face_setting"></div>
+			<div id="char_name" align="center"></div>
+			<div id="money" align="center"></div>
+			<div id="friendly" align="center"></div>
+			<a href="Option.html" data-role = "none" data-transition="slide" rel="external" class="ui-btn-right"><img src="option.png" id = "optionIMG" style = "float: right;"></a>
+			</div><br/><br/><br/>
+			<div data-role="content" id="content_start">
+				<br/><br/><br/>
+				<div class="text">
+					<script src="8.js"></script>
+				</div><br/><br/><br/>
+				<div class="select" align="center"></div>
+			</div>
+		</div>
+	</body>
+</html>

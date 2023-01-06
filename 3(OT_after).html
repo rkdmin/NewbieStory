@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>,
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>새내기이야기</title>
+		<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>	
+		<link rel="stylesheet" href="font_setting.css" media=all>
+		<script type="text/javascript" src="character.js?version=20121221"></script> 
+		<script>
+			function select() {
+				$('.select').html('<h3 align="center">어떻게 할까....?</h3><br/><a href="3_1_2.html" rel="external" onclick="OT();">1. 술!!! 처음 먹어보지만 성인이 됐다는 증거겠지 기대된닿ㅎㅎ</a><br/><br/><br/><a href="3_1_3.html" rel="external" onclick="I();">2. 너무 어색할거같은데... 몰래.. 도망가..야지..</a><br/><br/><br/>');
+				$('.select a').css({'padding':'20px', 'color':'black', 'font-size':'20px', 'text-decoration-line' : 'none', 'float': 'left'});
+				$('.select a').focus(function(){
+					$(this).css('color', '#2EE59D');
+				});
+				$('.select a').blur(function(){
+					$(this).css('color', '#2EE59D');
+				});
+			}
+			function OT() {
+				localStorage.setItem('OT_Liqure', 2);
+			}
+		</script>
+	</head>
+	<body>
+		<div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed" data-theme="b">
+			<div class="face_setting"></div>
+			<div id="char_name" align="center"></div>
+			<div id="money" align="center"></div>
+			<div id="friendly" align="center"></div>
+			<a href="Option.html" data-role = "none" data-transition="slide" rel="external" class="ui-btn-right"><img src="option.png" id = "optionIMG" style = "float: right;"></a>
+			</div><br/><br/><br/>
+			<div data-role="content" id="content_start">
+				<br/><br/><br/>
+				<div class="text">
+					<script src="OT(후).js"></script>
+				</div><br/><br/><br/>
+				<div class="select" align="center"></div>
+			</div>
+		</div>
+	</body>
+</html>

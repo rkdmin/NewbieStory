@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>새내기이야기 main</title>
+		<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+		<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>	
+		<script src="file_modify.js"></script>
+		<script src="telephone.js"></script>
+		<script>
+			function main_return() {
+				var ok = confirm("메인화면으로 돌아갑니다.");
+				if (ok == true) {
+					clear_file();
+					location.href = 'index.html';
+				}
+			}
+			
+			function file_save(value) {
+				var ok = confirm("파일을 이곳에 덮어씁니다.");
+				if (ok == true) {
+					convert_file(value);
+					confirm_file();
+				}
+			}
+			
+			function file_open(value) {
+				var ok = confirm("파일을 엽니다.");
+				if (ok == true) {
+					clear_file();
+					decomposition_file(value);
+					
+					if (value == 1) {
+						var path = localStorage.getItem('convert1_path');
+						location.href = path;	
+					}
+					else if (value == 2) {
+						var path = localStorage.getItem('convert2_path');
+						location.href = path;
+					}
+					else if (value == 3) {
+						var path = localStorage.getItem('convert3_path');
+						location.href = path;	
+					}
+					else if (value == 4) {
+						var path = localStorage.getItem('convert4_path');
+						location.href = path;
+					}
+				}
+			}
+			
+			function confirm_file() {
+				var convert1 = localStorage.getItem('convert1');
+				var convert2 = localStorage.getItem('convert2');
+				var convert3 = localStorage.getItem('convert3');
+				var convert4 = localStorage.getItem('convert4');
+				
+				if (convert1 == null) {
+					$('.file1').html('<a onclick="file_save(1);">파일이 존재하지 않습니다.</a>');
+					$('.file1').css({'border':'3px solid black', 'padding':'30px'});
+				}
+				else if (convert1 != null) {
+					$('.file1').html('<a onclick="file_open(1);">파일 1</a>');
+					$('.file1').css({'border':'4px solid black', 'padding':'30px'});
+				}
+				if (convert2 == null) {
+					$('.file2').html('<a onclick="file_save(2);">파일이 존재하지 않습니다.</a>');
+					$('.file2').css({'border':'3px solid black', 'padding':'30px'});
+				}
+				else if (convert2 != null) {
+					$('.file2').html('<a onclick="file_open(2);">파일 2</a>');
+					$('.file2').css({'border':'4px solid black', 'padding':'30px'});
+				}
+				if (convert3 == null) {
+					$('.file3').html('<a onclick="file_save(3);">파일이 존재하지 않습니다.</a>');
+					$('.file3').css({'border':'3px solid black', 'padding':'30px'});
+				}
+				else if (convert3 != null) {
+					$('.file3').html('<a onclick="file_open(3);">파일 3</a>');
+					$('.file3').css({'border':'4px solid black', 'padding':'30px'});
+				}
+				if (convert4 == null) {
+					$('.file4').html('<a onclick="file_save(4);">파일이 존재하지 않습니다.</a>');
+					$('.file4').css({'border':'3px solid black', 'padding':'30px'});
+				}
+				else if (convert4 != null) {
+					$('.file4').html('<a onclick="file_open(4);">파일 4</a>');
+					$('.file4').css({'border':'4px solid black', 'padding':'30px'});
+				}
+			}
+			
+			function format() {
+				var ok = confirm("4개 파일을 모두 초기화 합니다.");
+				if (ok == true) {
+					localStorage.removeItem('convert1');
+					localStorage.removeItem('convert1_path');
+					localStorage.removeItem('convert2');
+					localStorage.removeItem('convert2_path');
+					localStorage.removeItem('convert3');
+					localStorage.removeItem('convert3_path');
+					localStorage.removeItem('convert4');
+					localStorage.removeItem('convert4_path');
+					confirm_file();
+				}
+			}
+			function change_name() {
+				var n = prompt("당신의 이름은?");
+				
+				if (n.length == 0) {
+					alert("정확한 이름을 입력해주세요.");
+					change_name();
+				}
+				else {
+					localStorage.removeItem('name');
+					localStorage.setItem('name', n);
+					alert("이름이 " + n + "으로 변경되었습니다.");	
+				}
+			}
+			function confirm_telephone() {
+				var ok = confirm("주소록 초기화 합니다. (실행 후 돌이킬 수 없습니다!)");
+				if (ok == true) {
+					format_telephone();
+					open_telephone();
+				}
+			}
+		</script>
+		<link rel="stylesheet" href="font_setting.css" media=all>
+	</head>
+	<body>
+		<div data-role="page" id="select">
+			<div data-role="header">
+				<div align="center"><h1>Option</h1></div>
+			</div>
+			<div data-role="content">
+				<div class="ui-grid-a" style = "text-align: center; padding: 1px;">
+					<div class="ui-block-a">
+						<a href="#telephone" data-rel="dialog" onclick="open_telephone();"><img src="book.png" height="100" width="100"></a>
+						<p>주소록</p>
+					</div>
+					<div class="ui-block-b">
+							<a href="#" onclick="change_name();">
+							<img src="Test.png" height="100" width="100">
+							</a>
+							<p>이름 변경</p>
+					</div>
+					<div class="ui-block-a">
+						<a href="#save" data-rel="dialog" onclick="confirm_file();"><img src="return.png" height="100" width="100"></a>
+						<p>저장/불러오기</p>
+					</div>
+					<div class="ui-block-b">
+						<a onclick="main_return();"><img src="home.png" height="100" width="100"></a>
+						<p>메인화면</p>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<a href="#" data-rel="back" style="margin:10px;">Return</a>
+			</div>
+		</div>
+		<div data-role="page" id="save" data-position="fixed">
+			<div data-role="header">
+				<div align="center"><h1>저장/불러오기</h1></div>
+			</div>
+			<div data-role="content">
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<div class="file1"></div>
+					</div>
+					<div class="ui-block-b">
+						<div class="file2"></div>
+					</div>
+					<div class="ui-block-a">
+						<div class="file3"></div>
+					</div>
+					<div class="ui-block-b">
+						<div class="file4"></div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<a href="#" data-rel="back" style="margin:10px;">Return</a>
+				<a style="margin:10px;" class="ui-btn-right" onclick="format();">파일 초기화</a>
+			</div>
+		</div>
+		<div data-role="page" id="telephone" data-position="fixed">
+			<div data-role="header">
+				<div align="center"><h1>주소록</h1></div>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview">
+					<li id="KimGangJae"></li>
+					<li id="ImChaeYeon"></li>
+					<li id="LeeEunhyeok"></li>
+					<li id="LeeGaEun"></li>
+					<li id="LeeDoHyeon"></li>
+					<li id="KimHaeHun"></li>
+					<li id="JiEunhye"></li>
+					<li id="key"></li>
+				</ul>
+			</div>
+			<div data-role="footer">
+				<a href="#" data-rel="back" style="margin:10px;">Return</a>
+				<a style="margin:10px;" class="ui-btn-right" onclick="confirm_telephone();">주소록 초기화</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+@font-face {
+	font-family : 'ONE Mobile POP';
+	src : url('Cafe24Ohsquareair.ttf');
+}
+
+* {font-family : 'ONE Mobile POP';}
+
+
+
+.border {
+	
+	font-size: 1.6rem;
+	font-weight: bolder;
+	display: grid;
+	place-items: center;
+	min-height: 100px;
+	border: 8px solid;
+	padding: 1rem;
+}
+
+.full {
+	border-image: linear-gradient(45deg, turquoise, greenyellow) 1;
+	background-color: white;
+}
+
+.sides {
+	border-image: linear-gradient(to left, turquoise, greenyellow) 1 0;
+}
+.sides-2 {
+	border-image: linear-gradient(to bottom, turquoise, greenyellow) 0 1;
+}
+
+.linear-repeating {
+	border-width: 10px;
+	border-image: repeating-linear-gradient(45deg, turquoise, pink 4%) 1;
+}
+
+.radial-repeating {
+	border-width: 20px;
+	border-image: repeating-radial-gradient(
+			circle at 10px,
+			turquoise,
+			pink 2px,
+			greenyellow 4px,
+			pink 2px
+		)
+		1;
+}
+
+
+
+
+
+/* 헤더 */
+div[data-role="header"]{
+	background-color: white;
+	height:90px;
+	font-size: 10pt;
+	font-weight: bolder;
+	color: black;
+	/*
+	top:0px;
+	left:1px;
+	bottom:1px;
+	right:1px;
+	*/
+	border: 1px dotted #2EE59D;
+	
+	
+}
+
+/* 이미지 */
+.face_setting{
+	
+	height: 200px;
+	float:left;
+	text-align: center;
+}
+
+/* 헤더에 이름 */
+#char_name{
+	line-height: 6;
+	float: left;
+}
+
+/* 헤더에 나이 */
+#money{
+	line-height: 6;
+	float: left;
+}
+
+/* 옵션 버튼 */
+#optionIMG{
+	height: 30px;
+	float: right; margin-top: 20px; margin-right: 20px;
+	
+}
+#optionIMG:visited {
+	text-decoration:lightgray; text-shadow: 0 0 24px;
+ }
+
+
+h3[align="center"]{
+	font-size: 20px;
+	color: black;
+	border: 3px solid #2EE59D;
+	padding: 7px;
+}
+
+/* 옵션에 있는 헤더 */
+#optionHeader{ 
+	height: 45px;
+}
+
+
+/*#buttonTable{
+		font-family : 'ONE Mobile POP';
+		color: #000000 !important;
+		font-size: 14px;
+		text-shadow: 1px 1px 0px #ffffff;
+		box-shadow: 1px 1px 1px #6b6b6b;
+		padding: 10px 25px;
+		border-radius: 3px;
+		border: 2px groove #686868;
+		background: #FAEDE1;
+		background: linear-gradient(to top, #ffffff, #c9c9c9e3);
+
+	
+	  
+}
+#buttonTable:hover {
+	color: #ffffff !important;	
+	background: #ffffff;
+	background: linear-gradient(to top, #868686, #7c83886c);
+  }
+  */
+
+  
+  /*인트로 버튼 꾸미기*/
+  #buttonTable {
+	margin-top: 5px;
+	font-family : 'ONE Mobile POP';
+	padding: 10px 25px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: #fff;
+	border: none;
+	border-radius: 50px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	}
+  
+  #buttonTable:hover {
+	background-color: #2EE59D;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+  }
+
+  .ui-grid-a img{
+	  text-align: center;
+  }
+  .ui-block-a img{
+	float:inline-start;
+  }
+
